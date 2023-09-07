@@ -75,7 +75,9 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Contact
 
 If you have any questions or feedback, feel free to contact me:
-
+<br>
 Email: <a href="shanmugamrskfamily@gmail.com" type="email">shanmugamasrskfamily@gmail.com</a>
+<br>
 Linkedln: <a href="https://www.linkedin.com/in/shanmugamrskfamily/">SHANMUGAM R</a>
+<br>
 Thank you for using the Library Management System!
