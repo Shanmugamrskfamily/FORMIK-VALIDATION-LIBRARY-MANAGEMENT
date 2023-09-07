@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { Card, Form, Button } from "react-bootstrap";
 
 const Books = ({ data, setData, edit }) => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Books = ({ data, setData, edit }) => {
           }
         }
         setData(a);
-        console.log("updatedvalue", data);
+        console.log("updated value", data);
       } else {
         setData([...data, values]);
       }
@@ -45,70 +46,81 @@ const Books = ({ data, setData, edit }) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div className="conatiner">
-        <div className="card">
-          <div className="card-header text-center mb-3">Book</div>
-          <div className="card-body">
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                id="title"
-                type="text"
-                placeholder="Enter the Book Title"
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-                value={formik.values.title}
-              />
-              {formik.errors.title ? <p>{formik.errors.title}</p> : null}
-            </div>
+    <Card>
+      <Card.Body>
+        <Card.Title><h1 className="text-center">Enter Book Details</h1></Card.Title>
+        <Form onSubmit={formik.handleSubmit}>
+          <Form.Group controlId="title">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter the Book Title"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.title}
+            />
+            {formik.errors.title ? (
+              <Form.Text className="text-danger">
+                {formik.errors.title}
+              </Form.Text>
+            ) : null}
+          </Form.Group>
 
-            <div className="form-group">
-              <label htmlFor="author">Author</label>
-              <input
-                id="author"
-                type="text"
-                placeholder="Enter the Author"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.author}
-              />
-              {formik.errors.author ? <p>{formik.errors.author}</p> : null}
-            </div>
+          <Form.Group controlId="author">
+            <Form.Label>Author</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter the Author"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.author}
+            />
+            {formik.errors.author ? (
+              <Form.Text className="text-danger">
+                {formik.errors.author}
+              </Form.Text>
+            ) : null}
+          </Form.Group>
 
-            <div className="form-group">
-              <label htmlFor="number">ISBN Number</label>
-              <input
-                id="isbn"
-                type="number"
-                placeholder="Enter the ISBN-Number"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.isbn}
-              />
-              {formik.errors.isbn ? <p>{formik.errors.isbn}</p> : null}
-            </div>
+          <Form.Group controlId="isbn">
+            <Form.Label>ISBN Number</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the ISBN-Number"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.isbn}
+            />
+            {formik.errors.isbn ? (
+              <Form.Text className="text-danger">
+                {formik.errors.isbn}
+              </Form.Text>
+            ) : null}
+          </Form.Group>
 
-            <div className="form-group">
-              <label htmlFor="date">Publication Date</label>
-              <input
-                id="date"
-                type="date"
-                placeholder="Enter the Date"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.date}
-              />
-              {formik.errors.date ? <p>{formik.errors.date}</p> : null}
-            </div>
-
-            <button className="btn btn-primary" type="submit">
-              Add the Book
-            </button>
+          <Form.Group controlId="date">
+            <Form.Label>Publication Date</Form.Label>
+            <Form.Control
+              type="date"
+              placeholder="Enter the Date"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.date}
+            />
+            {formik.errors.date ? (
+              <Form.Text className="text-danger">
+                {formik.errors.date}
+              </Form.Text>
+            ) : null}
+          </Form.Group>
+          <div class="d-grid gap-2">
+          <Button type="submit" variant="primary">
+            Add the Book
+          </Button>
           </div>
-        </div>
-      </div>
-    </form>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 

@@ -1,35 +1,89 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Books from "./Components/Books";
+import Header from "./Components/Header";
+import Author from "./Components/Author";
+import Homepage from "./Pages/HomePage";
+import BooksCollection from "./Pages/BooksPage";
+import AuthorCollection from "./Pages/AuthorPage";
+import { useState } from "react";
+import Footer from "./Components/Footer";
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState([]);
+  const [edit, setEdit] = useState({
+    id: "",
+    title: "",
+    author: "",
+    isbn: "",
+    data: "",
+    isEditing: false,
+  });
+
+  const [author, setAuthor] = useState([]);
+  const [authedit, setAuthEdit] = useState({
+    id: "",
+    name: "",
+    date: "",
+    bio: "",
+    isEditing: false,
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route
+          path="/Books"
+          element={
+            Object.keys(edit).length > 0 ? (
+              <Books setData={setData} data={data} edit={edit} />
+            ) : (
+              ""
+            )
+          }
+        />
+        <Route
+          path="/Author"
+          element={
+            Object.keys(authedit).length > 0 ? (
+              <Author
+                setAuthor={setAuthor}
+                setAuthEdit={setAuthEdit}
+                author={author}
+                authedit={authedit}
+              />
+            ) : (
+              ""
+            )
+          }
+        />
+        <Route
+          path="/BooksPage"
+          element={
+            <BooksCollection
+              data={data}
+              setData={setData}
+              edit={edit}
+              setEdit={setEdit}
+            />
+          }
+        />
+        <Route
+          path="/AuthorPage"
+          element={
+            <AuthorCollection
+              author={author}
+              setAuthor={setAuthor}
+              authedit={authedit}
+              setAuthEdit={setAuthEdit}
+            />
+          }
+        />
+      </Routes>
+      <Footer></Footer>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

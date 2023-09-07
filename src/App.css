@@ -1,42 +1,24 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap");
+body {
+  background-color: rgb(48, 48, 48);
+  font-family: "Josefin Sans", sans-serif;
+  background-image: url(https://www.pixel-studios.com/blog/wp-content/uploads/2018/12/012.jpg);
+  font-weight: bolder;
+  color: rgb(20, 16, 24);
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  overflow: hidden;
+  object-fit: cover;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.gradient-bg {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#e905bb, #740606);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.gradient-bg2 {
+  font-weight: bolder;
+  font-size: 35px;
+  background: -webkit-linear-gradient(#e8e7e6ee, #37d4d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
