@@ -2,7 +2,7 @@
 
 Welcome to the Library Management System, a web application designed to help manage your library's books and authors.
 
-![Library Management System](link-to-your-screenshot.png)
+![Library Management System](https://github.com/Shanmugamrskfamily/FORMIK-VALIDATION-LIBRARY-MANAGEMENT/blob/main/public/demo.png)
 
 ## Features
 
