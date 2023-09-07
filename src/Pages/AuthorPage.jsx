@@ -19,7 +19,7 @@ const AuthorCollection = ({ author, setAuthor, authedit, setAuthEdit }) => {
   return (
     <div>
       <table class="table mt-3">
-        <thead className="bg-dark">
+        <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Author-Name</th>
